@@ -8,5 +8,5 @@ export const site = {
   email: "hello@emilyweir.com",
   linkedinUrl: "https://www.linkedin.com/",
   resumeUrl: "/emily-weir-resume.pdf",
-  headshotUrl: "/headshot.svg",
+  headshotUrl: "/headshot.jpg",
 };
