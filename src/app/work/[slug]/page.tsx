@@ -151,7 +151,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   >
                     <CheckCircle2
                       aria-hidden="true"
-                      className="mt-1 size-4 shrink-0 text-foreground/70"
+                      className="mt-1 size-4 shrink-0 text-primary"
                     />
                     <span>{outcome}</span>
                   </li>

@@ -5,8 +5,8 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} — ${site.headline}`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | ${site.headline}`,
+    template: `%s | ${site.name}`,
   },
   description: site.intro,
 };
