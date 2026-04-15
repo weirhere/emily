@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { LinkedInIcon } from "@/components/icons";
 import { FadeUp, ScrollFadeUp } from "@/components/motion-primitives";
+import { SmoothScrollLink } from "@/components/smooth-scroll-link";
 import { caseStudies } from "@/lib/case-studies";
 import { site } from "@/lib/site";
 
@@ -38,7 +39,7 @@ const GRID_STEP = 0.12;
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen flex-col">
       <SiteHeader />
 
       <main className="flex-1">
@@ -106,10 +107,10 @@ export default function HomePage() {
               <FadeUp delay={HERO_STEP * 6} className="pt-1">
                 <div className="flex justify-center md:justify-start">
                   <Button asChild size="lg">
-                    <Link href="#portfolio">
+                    <SmoothScrollLink href="#portfolio">
                       See the work
                       <ArrowDown aria-hidden="true" />
-                    </Link>
+                    </SmoothScrollLink>
                   </Button>
                 </div>
               </FadeUp>
@@ -150,7 +151,7 @@ export default function HomePage() {
                     className="group block h-full rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     aria-label={`Read case study: ${study.title}`}
                   >
-                    <Card className="h-full overflow-hidden pt-0 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:border-foreground/30 group-hover:shadow-md">
+                    <Card className="h-full overflow-hidden pt-0 transition-shadow duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:shadow-edge-hover">
                       <div className="aspect-video overflow-hidden border-b bg-muted">
                         <Image
                           src={study.image}
@@ -158,7 +159,7 @@ export default function HomePage() {
                           width={1600}
                           height={900}
                           sizes="(min-width: 640px) 50vw, 100vw"
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                          className="h-full w-full object-cover transition-transform duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-[1.02]"
                         />
                       </div>
                       <CardHeader>
@@ -189,7 +190,7 @@ export default function HomePage() {
                           Read case study
                           <ArrowUpRight
                             aria-hidden="true"
-                            className="size-4 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
+                            className="size-4 transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
                           />
                         </div>
                       </CardContent>
@@ -206,7 +207,7 @@ export default function HomePage() {
           className="mx-auto w-full max-w-5xl px-6 pb-20 sm:pb-28"
         >
           <ScrollFadeUp>
-            <div className="rounded-2xl border border-border bg-muted/40 px-8 py-12 text-center sm:px-12 sm:py-16">
+            <div className="rounded-2xl bg-muted/40 px-8 py-12 text-center shadow-edge sm:px-12 sm:py-16">
               <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
                 Want to work together?
               </h2>

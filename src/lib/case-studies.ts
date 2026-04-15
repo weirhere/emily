@@ -93,3 +93,9 @@ export const caseStudies: CaseStudy[] = [
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((study) => study.slug === slug);
 }
+
+export function getNextCaseStudy(slug: string): CaseStudy | undefined {
+  const index = caseStudies.findIndex((study) => study.slug === slug);
+  if (index === -1) return undefined;
+  return caseStudies[(index + 1) % caseStudies.length];
+}

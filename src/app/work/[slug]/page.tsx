@@ -16,7 +16,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { caseStudies, getCaseStudy } from "@/lib/case-studies";
+import { caseStudies, getCaseStudy, getNextCaseStudy } from "@/lib/case-studies";
 
 type CaseStudyPageProps = {
   params: Promise<{ slug: string }>;
@@ -50,8 +50,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     notFound();
   }
 
+  const nextStudy = getNextCaseStudy(study.slug);
+
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen flex-col">
       <SiteHeader />
 
       <main className="flex-1">
@@ -180,6 +182,28 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               </div>
             </section>
           </div>
+
+          {nextStudy && (
+            <Link
+              href={`/work/${nextStudy.slug}`}
+              className="group mt-16 block rounded-2xl bg-muted/40 px-8 py-10 shadow-edge transition-shadow duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:shadow-edge-hover sm:px-10 sm:py-12"
+              aria-label={`Next case study: ${nextStudy.title}`}
+            >
+              <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                Next case study
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+                {nextStudy.title}
+              </h2>
+              <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-primary">
+                Read case study
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="size-4 transition-transform duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </div>
+            </Link>
+          )}
         </article>
       </main>
 
