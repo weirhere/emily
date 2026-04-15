@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
 
 import {
   Card,
@@ -45,7 +45,7 @@ export default function HomePage() {
       <main className="flex-1">
         <section
           id="about"
-          className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-24"
+          className="mx-auto w-full max-w-6xl px-6 py-16 sm:py-24"
         >
           <div className="grid items-center gap-10 md:grid-cols-[220px_1fr] md:gap-16">
             <FadeUp className="mx-auto md:mx-0" delay={0}>
@@ -62,31 +62,26 @@ export default function HomePage() {
             </FadeUp>
 
             <div className="space-y-5 text-center md:text-left">
-              <FadeUp delay={HERO_STEP * 1}>
-                <Badge variant="secondary" className="mx-auto md:mx-0">
-                  {site.location}
-                </Badge>
-              </FadeUp>
-
-              <FadeUp delay={HERO_STEP * 2}>
+              <FadeUp delay={HERO_STEP * 1} className="space-y-1">
                 <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
                   {site.name}
                 </h1>
-              </FadeUp>
-
-              <FadeUp delay={HERO_STEP * 3}>
                 <p className="text-base font-medium text-muted-foreground sm:text-lg">
                   {site.headline}
                 </p>
+                <p className="inline-flex items-center gap-1 text-sm font-medium text-primary">
+                  <MapPin aria-hidden="true" className="size-3.5" />
+                  {site.location}
+                </p>
               </FadeUp>
 
-              <FadeUp delay={HERO_STEP * 4}>
+              <FadeUp delay={HERO_STEP * 2}>
                 <p className="mx-auto max-w-2xl text-left text-base leading-relaxed text-muted-foreground md:mx-0">
                   {site.intro}
                 </p>
               </FadeUp>
 
-              <FadeUp delay={HERO_STEP * 5}>
+              <FadeUp delay={HERO_STEP * 3}>
                 <Link
                   href="/work/crisis-center-50th-anniversary-newsletter"
                   className="group block max-w-2xl border-l-2 border-primary pl-4 text-left"
@@ -104,7 +99,7 @@ export default function HomePage() {
                 </Link>
               </FadeUp>
 
-              <FadeUp delay={HERO_STEP * 6} className="pt-1">
+              <FadeUp delay={HERO_STEP * 4} className="pt-1">
                 <div className="flex justify-center md:justify-start">
                   <Button asChild size="lg">
                     <SmoothScrollLink href="#portfolio">
@@ -120,7 +115,7 @@ export default function HomePage() {
 
         <section
           id="portfolio"
-          className="mx-auto w-full max-w-5xl px-6 pb-20 sm:pb-28"
+          className="mx-auto w-full max-w-6xl px-6 pb-20 sm:pb-28"
         >
           <ScrollFadeUp>
             <div className="mb-10 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
@@ -138,7 +133,7 @@ export default function HomePage() {
             </div>
           </ScrollFadeUp>
 
-          <ul className="grid gap-5 sm:grid-cols-2">
+          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {caseStudies.map((study, index) => (
               <ScrollFadeUp
                 key={study.slug}
@@ -204,7 +199,7 @@ export default function HomePage() {
 
         <section
           id="contact"
-          className="mx-auto w-full max-w-5xl px-6 pb-20 sm:pb-28"
+          className="mx-auto w-full max-w-6xl px-6 pb-20 sm:pb-28"
         >
           <ScrollFadeUp>
             <div className="rounded-2xl bg-muted/40 px-8 py-12 text-center shadow-edge sm:px-12 sm:py-16">
