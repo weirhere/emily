@@ -70,8 +70,7 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="max-w-md text-sm text-muted-foreground">
-              A selection of campaigns, features, and bylines. Click any piece
-              to read the full case study.
+              A selection of campaigns, features, and bylines.
             </p>
           </div>
 
@@ -83,7 +82,17 @@ export default function HomePage() {
                   className="group block h-full rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   aria-label={`Read case study: ${study.title}`}
                 >
-                  <Card className="h-full transition-all duration-200 group-hover:-translate-y-0.5 group-hover:border-foreground/30 group-hover:shadow-md">
+                  <Card className="h-full overflow-hidden pt-0 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:border-foreground/30 group-hover:shadow-md">
+                    <div className="aspect-video overflow-hidden border-b bg-muted">
+                      <Image
+                        src={study.image}
+                        alt=""
+                        width={1600}
+                        height={900}
+                        sizes="(min-width: 640px) 50vw, 100vw"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
                     <CardHeader>
                       <div className="flex items-center justify-between gap-3">
                         <Badge variant="outline" className="font-normal">

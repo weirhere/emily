@@ -11,96 +11,78 @@ export type CaseStudy = {
   outcomes: string[];
   sourceUrl: string;
   sourceLabel: string;
+  image: string;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "brand-launch-campaign",
-    title: "Launching a Direct-to-Consumer Wellness Brand",
+    slug: "suncoast-grant-press-release",
+    title: "Announcing a $35,000 Grant for Youth Sexual Assault Exams",
     summary:
-      "Led go-to-market messaging and earned media strategy for a new wellness brand entering a saturated market.",
-    category: "Brand Launch",
-    publication: "Fast Company",
-    date: "March 2025",
+      "Wrote and distributed the press release announcing a $35,000 Suncoast Credit Union Foundation grant to cover 50 forensic exams for teens at the Crisis Center of Tampa Bay.",
+    category: "Press Release",
+    publication: "Crisis Center of Tampa Bay",
+    date: "April 2026",
     brief:
-      "A pre-launch wellness brand needed to cut through a crowded market and build trust with skeptical consumers ahead of its national retail debut. The founding team had a strong product but no earned media footprint, no clear narrative, and limited runway before launch day.",
-    role: "Lead Publicist & Brand Messaging Strategist",
+      "The Crisis Center of Tampa Bay received a $35,000 grant from the Suncoast Credit Union Foundation to offset the cost of forensic sexual assault exams for clients ages 13 to 17 — a service that runs more than $1,700 per exam, with a deficit remaining even after government funding. Leadership wanted to announce the gift in a way that made the real cost of this care concrete for readers, recognized a long-standing funding partner, and reinforced the Crisis Center's role as the county's certified rape crisis center.",
+    role: "Communications Lead",
     goal:
-      "Craft a distinct founder-led narrative, secure top-tier earned media placements, and drive qualified traffic to the brand's pre-order waitlist in the eight weeks leading up to launch.",
+      "Draft and distribute a press release that translated the grant into a tangible unit of care, honored Suncoast's continued partnership, and generated earned media coverage across the Tampa Bay market.",
     outcomes: [
-      "Secured 14 tier-one placements across lifestyle, business, and wellness press, including a feature in Fast Company.",
-      "Grew the pre-order waitlist by 312% month-over-month in the six weeks prior to launch.",
-      "Positioned the founder as a category thought leader through three commissioned op-eds and two podcast appearances.",
-      "Established messaging guidelines and a press kit that the internal team still uses today.",
+      "Framed the $35,000 grant around a concrete unit of care — 50 forensic exams for clients ages 13 to 17 — so the dollar figure landed as impact rather than abstraction.",
+      "Surfaced an under-reported data point — each exam costs over $1,700, with a deficit remaining after government funding — to give readers a clear reason the gift matters.",
+      "Secured on-the-record quotes from both Suncoast's Executive Director of Foundations and the Crisis Center's CEO, framing the partnership from both sides.",
+      "Anchored the announcement inside the Crisis Center's broader mission so a single-grant story also introduced Corbett Trauma Center, Gateway Contact Center, Success 4 Kids & Families, and TransCare to new readers.",
     ],
-    sourceUrl: "https://www.fastcompany.com",
-    sourceLabel: "Read the feature on Fast Company",
+    sourceUrl: "/case-studies/suncoast-grant-press-release.pdf",
+    sourceLabel: "Read the press release (PDF)",
+    image: "/case-studies/suncoast-grant-press-release.png",
   },
   {
-    slug: "thought-leadership-op-ed",
-    title: "Founder Op-Ed on the Future of Retail",
+    slug: "mental-health-and-hurricanes",
+    title: "Mental Health and Hurricanes Resource Page",
     summary:
-      "Ghostwrote a byline placement that reframed a founder's point of view on experiential retail.",
-    category: "Thought Leadership",
-    publication: "Business of Fashion",
-    date: "November 2024",
+      "Wrote the Crisis Center's resource page connecting Floridians to mental health support before, during, and after hurricane season.",
+    category: "Web Copy",
+    publication: "Crisis Center of Tampa Bay",
+    date: "2025",
     brief:
-      "A retail founder wanted to elevate her voice in the conversation around the future of brick-and-mortar but struggled to translate operational insight into a compelling editorial point of view. Previous pitches had been declined by target publications.",
-    role: "Ghostwriter & Media Relations Lead",
+      "Hurricane season is one of the highest-stress stretches of the year in Tampa Bay, and the Crisis Center wanted a dedicated page that met anxious residents where they were — from pre-storm preparation through post-storm recovery. The page needed to normalize hurricane-related stress, equip readers with practical coping guidance, and route them into the Crisis Center's existing services (988, 211, HERO Line, Corbett Trauma Center) rather than leaving them with generic advice.",
+    role: "Copywriter",
     goal:
-      "Develop a sharp, contrarian thesis and place a byline in a top-tier industry publication that would position the founder as an authority on experiential retail.",
+      "Write a standalone web page that normalized hurricane-related stress, offered phase-specific coping strategies, and turned a timely seasonal topic into a clear entry point for the Crisis Center's services.",
     outcomes: [
-      "Byline published in Business of Fashion within four weeks of kickoff.",
-      "Piece drove a 47% lift in founder LinkedIn followers in the first two weeks.",
-      "Sparked inbound interest from two national conferences and a podcast network.",
-      "Became a reference point for subsequent investor conversations.",
+      "Authored a full web page mapping mental health guidance to the pre-, during-, and post-hurricane phases most Tampa Bay residents experience.",
+      "Connected content directly to existing Crisis Center channels — 988, 211, the HERO Line, and the Corbett Trauma Center — so readers left with concrete next steps, not general advice.",
+      "Extended the Crisis Center's voice into a timely, SEO-relevant page that surfaces alongside hurricane-preparation searches in the Tampa Bay market.",
+      "Added to a broader body of web copy written across crisiscenter.com, continuing to shape how the organization sounds on its own site.",
     ],
-    sourceUrl: "https://www.businessoffashion.com",
-    sourceLabel: "Read the op-ed on Business of Fashion",
+    sourceUrl: "https://www.crisiscenter.com/hurricane/",
+    sourceLabel: "View the page on crisiscenter.com",
+    image: "/case-studies/mental-health-and-hurricanes.png",
   },
   {
-    slug: "crisis-communications",
-    title: "Crisis Response for a Hospitality Group",
+    slug: "crisis-center-50th-anniversary-newsletter",
+    title: "50th Anniversary Print Newsletter for the Crisis Center of Tampa Bay",
     summary:
-      "Managed messaging, media relations, and internal comms during a high-profile operational crisis.",
-    category: "Crisis Communications",
-    publication: "Eater",
-    date: "July 2024",
+      "Wrote every story and refreshed the design of the Crisis Center's donor newsletter for its 50th year of help, hope, and healing.",
+    category: "Print Editorial",
+    publication: "Crisis Center of Tampa Bay",
+    date: "2022",
     brief:
-      "A growing hospitality group faced an operational incident that was trending across local media and social platforms. Coverage was accelerating, team morale was dropping, and leadership needed a defensible, human response within 24 hours.",
-    role: "Communications Lead & Spokesperson Coach",
+      "The Crisis Center of Tampa Bay was marking 50 years of service and needed a donor newsletter that honored that half-century legacy while keeping long-time supporters current on the breadth of today's programs — from 988 and 211 to TransCare, Sexual Assault Services, and the Corbett Trauma Center. The piece needed to balance a CEO letter, service updates, event recaps, client storytelling, impact data, and donor recognition in a single cohesive mailed issue.",
+    role: "Writer & Newsletter Designer",
     goal:
-      "Stabilize the narrative, communicate transparently with stakeholders, protect team members, and reestablish trust with guests and the press within a seven-day window.",
+      "Produce the annual donor newsletter end-to-end — writing every story and refreshing the layout — to celebrate the organization's 50-year legacy, communicate the full range of current services, and deepen donor connection to the mission.",
     outcomes: [
-      "Delivered an on-the-record statement and founder interview within 18 hours of crisis onset.",
-      "Reduced negative sentiment in press coverage by 62% week-over-week.",
-      "Coached three executives for live media interviews, all of which published verbatim quotes.",
-      "Built an internal communications cadence that is now a permanent part of the company's playbook.",
+      "Wrote all eight pages of content, including a CEO letter on the 50-year legacy, service updates across 988, TransCare, Sexual Assault Services, and the Corbett Trauma Center, event recaps, and a donor spotlight.",
+      "Refreshed the newsletter's design system — typography, color, and information hierarchy — to feel modern while staying at home in a printed, mailed package.",
+      "Translated internal program data into accessible storytelling, including an 'Our Impact on the Community' spread visualizing 84,536 crisis calls, 10,261 counseling sessions, and 31,845 TransCare transports.",
+      "Anchored the issue with a client's handwritten 'My Future Looks Bright' note to ground program metrics in an individual story of healing.",
     ],
-    sourceUrl: "https://www.eater.com",
-    sourceLabel: "Read the coverage on Eater",
-  },
-  {
-    slug: "product-launch-feature",
-    title: "Tier-One Product Launch Feature",
-    summary:
-      "Orchestrated an exclusive product launch feature that became the brand's most-cited press moment.",
-    category: "Product Launch",
-    publication: "The Verge",
-    date: "April 2024",
-    brief:
-      "A consumer tech startup was preparing to launch its flagship product and wanted to anchor the moment with one definitive story rather than a scattered press push. Competitors in the category had recently underwhelmed with their own launches.",
-    role: "Press Strategy Lead",
-    goal:
-      "Secure an exclusive launch feature with a tier-one tech publication and coordinate a tightly sequenced follow-on press rollout that would sustain coverage through the first 30 days.",
-    outcomes: [
-      "Landed an exclusive launch feature in The Verge that drove 40% of launch-week site traffic.",
-      "Coordinated a 21-outlet follow-on rollout with zero embargo breaks.",
-      "Product sold through its first production run in 11 days.",
-      "Feature remains the brand's most-cited press moment with investors and partners.",
-    ],
-    sourceUrl: "https://www.theverge.com",
-    sourceLabel: "Read the launch feature on The Verge",
+    sourceUrl: "/case-studies/crisis-center-50th-anniversary-newsletter.pdf",
+    sourceLabel: "View the printed newsletter (PDF)",
+    image: "/case-studies/crisis-center-50th-anniversary-newsletter.png",
   },
 ];
 
