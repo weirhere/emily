@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
@@ -62,6 +63,17 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 Back to work
               </Link>
             </Button>
+          </div>
+
+          <div className="mb-10 aspect-video overflow-hidden rounded-xl border border-border bg-muted">
+            <Image
+              src={study.image}
+              alt={`Visual preview of ${study.title}`}
+              width={1600}
+              height={900}
+              className="h-full w-full object-cover"
+              priority
+            />
           </div>
 
           <header className="space-y-4">

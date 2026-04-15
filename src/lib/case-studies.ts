@@ -11,6 +11,7 @@ export type CaseStudy = {
   outcomes: string[];
   sourceUrl: string;
   sourceLabel: string;
+  image: string;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -35,6 +36,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     sourceUrl: "/case-studies/suncoast-grant-press-release.pdf",
     sourceLabel: "Read the press release (PDF)",
+    image: "/case-studies/suncoast-grant-press-release.png",
   },
   {
     slug: "mental-health-and-hurricanes",
@@ -57,6 +59,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     sourceUrl: "https://www.crisiscenter.com/hurricane/",
     sourceLabel: "View the page on crisiscenter.com",
+    image: "/case-studies/mental-health-and-hurricanes.png",
   },
   {
     slug: "crisis-center-50th-anniversary-newsletter",
@@ -79,6 +82,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     sourceUrl: "/case-studies/crisis-center-50th-anniversary-newsletter.pdf",
     sourceLabel: "View the printed newsletter (PDF)",
+    image: "/case-studies/crisis-center-50th-anniversary-newsletter.png",
   },
 ];
 
