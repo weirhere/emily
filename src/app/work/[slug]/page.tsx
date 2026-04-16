@@ -10,13 +10,18 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { caseStudies, getCaseStudy, getNextCaseStudy } from "@/lib/case-studies";
+import { ScrollFadeUp } from "@/components/motion-primitives";
+import {
+  caseStudies,
+  getCaseStudy,
+  getOtherCaseStudies,
+} from "@/lib/case-studies";
 
 type CaseStudyPageProps = {
   params: Promise<{ slug: string }>;
@@ -50,7 +55,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     notFound();
   }
 
-  const nextStudy = getNextCaseStudy(study.slug);
+  const otherStudies = getOtherCaseStudies(study.slug);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -67,20 +72,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </Button>
           </div>
 
-          <div className="mb-10 aspect-video overflow-hidden rounded-xl border border-border bg-muted">
-            <Image
-              src={study.image}
-              alt={`Visual preview of ${study.title}`}
-              width={1600}
-              height={900}
-              className="h-full w-full object-cover"
-              priority
-            />
-          </div>
-
           <header className="space-y-4">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="secondary" className="font-normal">
+              <Badge className="border-teal-200 bg-teal-50 font-normal text-teal-700">
                 {study.category}
               </Badge>
               <span className="text-xs text-muted-foreground">
@@ -95,9 +89,18 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </p>
           </header>
 
-          <Separator className="my-10" />
+          <div className="mt-10 aspect-video overflow-hidden rounded-xl border border-border bg-muted">
+            <Image
+              src={study.image}
+              alt={`Visual preview of ${study.title}`}
+              width={1600}
+              height={900}
+              className="h-full w-full object-cover"
+              priority
+            />
+          </div>
 
-          <div className="space-y-10">
+          <div className="mt-10 space-y-10">
             <section aria-labelledby="brief-heading">
               <h2
                 id="brief-heading"
@@ -183,26 +186,74 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </section>
           </div>
 
-          {nextStudy && (
-            <Link
-              href={`/work/${nextStudy.slug}`}
-              className="group mt-16 block rounded-2xl bg-muted/40 px-8 py-10 shadow-edge transition-shadow duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:shadow-edge-hover sm:px-10 sm:py-12"
-              aria-label={`Next case study: ${nextStudy.title}`}
-            >
+          {otherStudies.length > 0 && (
+            <section className="mt-16">
               <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-                Next case study
+                More case studies
               </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                {nextStudy.title}
-              </h2>
-              <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-primary">
-                Read case study
-                <ArrowUpRight
-                  aria-hidden="true"
-                  className="size-4 transition-transform duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </div>
-            </Link>
+              <ul className="mt-6 grid gap-5 sm:grid-cols-2">
+                {otherStudies.map((other, index) => (
+                  <ScrollFadeUp
+                    key={other.slug}
+                    delay={index * 0.08}
+                    className="h-full"
+                  >
+                    <li className="h-full">
+                      <Link
+                        href={`/work/${other.slug}`}
+                        className="group block h-full rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        aria-label={`Read case study: ${other.title}`}
+                      >
+                        <Card className="h-full overflow-hidden pt-0 transition-shadow duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:shadow-edge-hover">
+                          <div className="aspect-video overflow-hidden border-b bg-muted">
+                            <Image
+                              src={other.image}
+                              alt=""
+                              width={1600}
+                              height={900}
+                              sizes="(min-width: 640px) 50vw, 100vw"
+                              className="h-full w-full object-cover transition-transform duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-[1.02]"
+                            />
+                          </div>
+                          <CardHeader>
+                            <div className="flex items-center justify-between gap-3">
+                              <Badge variant="outline" className="font-normal">
+                                {other.category}
+                              </Badge>
+                              <span className="text-xs text-muted-foreground">
+                                {other.date}
+                              </span>
+                            </div>
+                            <CardTitle className="mt-3 text-xl leading-snug text-foreground">
+                              {other.title}
+                            </CardTitle>
+                            <CardDescription className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <span
+                                aria-hidden="true"
+                                className="inline-block size-1.5 shrink-0 rounded-full bg-primary"
+                              />
+                              {other.proof}
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm leading-relaxed text-muted-foreground">
+                              {other.summary}
+                            </p>
+                            <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
+                              Read case study
+                              <ArrowUpRight
+                                aria-hidden="true"
+                                className="size-4 transition-all duration-[500ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
+                              />
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </Link>
+                    </li>
+                  </ScrollFadeUp>
+                ))}
+              </ul>
+            </section>
           )}
         </article>
       </main>

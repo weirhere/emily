@@ -14,16 +14,27 @@ export function SiteHeader() {
         >
           {site.name}
         </Link>
-        <Button asChild size="sm" variant="outline">
-          <a
-            href={site.resumeUrl}
-            download
-            aria-label="Download Emily Weir's resume"
-          >
-            <Download aria-hidden="true" />
-            Resume
-          </a>
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button asChild variant="ghost" size="sm">
+            <a
+              href={site.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get in touch
+            </a>
+          </Button>
+          <Button asChild size="sm" variant="outline">
+            <a
+              href={site.resumeUrl}
+              download
+              aria-label="Download Emily Weir's resume"
+            >
+              <Download aria-hidden="true" />
+              Resume
+            </a>
+          </Button>
+        </div>
       </div>
     </header>
   );
