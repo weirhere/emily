@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/card";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { ScrollFadeUp } from "@/components/motion-primitives";
+import { FadeUp, ScrollFadeUp } from "@/components/motion-primitives";
 import {
   caseStudies,
   getCaseStudy,
@@ -72,118 +72,130 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </Button>
           </div>
 
-          <header className="space-y-4">
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge className="border-teal-200 bg-teal-50 font-normal text-teal-700">
-                {study.category}
-              </Badge>
-              <span className="text-xs text-muted-foreground">
-                {study.publication} &middot; {study.date}
-              </span>
-            </div>
-            <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              {study.title}
-            </h1>
-            <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              {study.summary}
-            </p>
-          </header>
+          <FadeUp delay={0}>
+            <header className="space-y-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge className="border-teal-200 bg-teal-50 font-normal text-teal-700">
+                  {study.category}
+                </Badge>
+                <span className="text-xs text-muted-foreground">
+                  {study.publication} &middot; {study.date}
+                </span>
+              </div>
+              <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                {study.title}
+              </h1>
+              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                {study.summary}
+              </p>
+            </header>
+          </FadeUp>
 
-          <div className="mt-10 aspect-video overflow-hidden rounded-xl border border-border bg-muted">
-            <Image
-              src={study.image}
-              alt={`Visual preview of ${study.title}`}
-              width={1600}
-              height={900}
-              className="h-full w-full object-cover"
-              priority
-            />
-          </div>
+          <FadeUp delay={0.08} className="mt-10">
+            <div className="aspect-video overflow-hidden rounded-xl border border-border bg-muted">
+              <Image
+                src={study.image}
+                alt={`Visual preview of ${study.title}`}
+                width={1600}
+                height={900}
+                className="h-full w-full object-cover"
+                priority
+              />
+            </div>
+          </FadeUp>
 
           <div className="mt-10 space-y-10">
-            <section aria-labelledby="brief-heading">
-              <h2
-                id="brief-heading"
-                className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
-              >
-                The Brief
-              </h2>
-              <p className="mt-3 text-base leading-relaxed text-foreground">
-                {study.brief}
-              </p>
-            </section>
+            <ScrollFadeUp>
+              <section aria-labelledby="brief-heading">
+                <h2
+                  id="brief-heading"
+                  className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
+                >
+                  The Brief
+                </h2>
+                <p className="mt-3 text-base leading-relaxed text-foreground">
+                  {study.brief}
+                </p>
+              </section>
+            </ScrollFadeUp>
 
-            <div className="grid gap-5 sm:grid-cols-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-                    My Role
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-base font-medium leading-snug text-foreground">
-                    {study.role}
-                  </p>
-                </CardContent>
-              </Card>
+            <ScrollFadeUp>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                      My Role
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-base font-medium leading-snug text-foreground">
+                      {study.role}
+                    </p>
+                  </CardContent>
+                </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-                    The Goal
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-base leading-snug text-foreground">
-                    {study.goal}
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <section aria-labelledby="outcomes-heading">
-              <h2
-                id="outcomes-heading"
-                className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
-              >
-                Outcomes
-              </h2>
-              <ul className="mt-4 space-y-3">
-                {study.outcomes.map((outcome, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-base leading-relaxed text-foreground"
-                  >
-                    <CheckCircle2
-                      aria-hidden="true"
-                      className="mt-1 size-4 shrink-0 text-primary"
-                    />
-                    <span>{outcome}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            <section aria-labelledby="source-heading">
-              <h2
-                id="source-heading"
-                className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
-              >
-                Source
-              </h2>
-              <div className="mt-4">
-                <Button asChild variant="outline">
-                  <a
-                    href={study.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {study.sourceLabel}
-                    <ArrowUpRight aria-hidden="true" />
-                  </a>
-                </Button>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                      The Goal
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-base leading-snug text-foreground">
+                      {study.goal}
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
-            </section>
+            </ScrollFadeUp>
+
+            <ScrollFadeUp>
+              <section aria-labelledby="outcomes-heading">
+                <h2
+                  id="outcomes-heading"
+                  className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
+                >
+                  Outcomes
+                </h2>
+                <ul className="mt-4 space-y-3">
+                  {study.outcomes.map((outcome, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 text-base leading-relaxed text-foreground"
+                    >
+                      <CheckCircle2
+                        aria-hidden="true"
+                        className="mt-1 size-4 shrink-0 text-primary"
+                      />
+                      <span>{outcome}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </ScrollFadeUp>
+
+            <ScrollFadeUp>
+              <section aria-labelledby="source-heading">
+                <h2
+                  id="source-heading"
+                  className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
+                >
+                  Source
+                </h2>
+                <div className="mt-4">
+                  <Button asChild variant="outline">
+                    <a
+                      href={study.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {study.sourceLabel}
+                      <ArrowUpRight aria-hidden="true" />
+                    </a>
+                  </Button>
+                </div>
+              </section>
+            </ScrollFadeUp>
           </div>
 
           {otherStudies.length > 0 && (
